@@ -45,11 +45,17 @@ const getAllServicePrices = function () {
             service2 = prompt('Какой дополнительный тип услуги нужен?', 'Второй');
         }
 
-        sum += parseFloat(prompt('Сколько это будет стоить?'));
 
-        while (!isNumber(sum)) {
-            sum = parseFloat(prompt('Сколько это будет стоить?'));
-        }
+
+        /*while (!isNumber(sum)) {
+            sum += parseFloat(prompt('Сколько это будет стоить?').trim());
+        }*/
+
+        let x;
+        do {
+            x = parseFloat(prompt('Сколько это будет стоить?'));
+        } while (!isNumber(x));
+        sum += x;
 
     }
     return sum;
