@@ -53,7 +53,9 @@ const getAllServicePrices = function () {
 
         let x;
         do {
+
             x = parseFloat(prompt('Сколько это будет стоить?').trim());
+
         } while (!isNumber(x));
         sum += x;
 
