@@ -82,7 +82,6 @@ const appData = {
            return operation.price += +operation.price;
         }, 0);
 
-
         for(let key in appData.services) {
             appData.allServicePrices += appData.services[key];
         }
