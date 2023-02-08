@@ -51,27 +51,37 @@ const appData = {
         }
 
             for (let i = 0; i < 2; i++) {
-                let name ='';
+                let name = '';
                 let price = 0;
 
                 do {
-                    name = prompt('Какой дополнительный тип услуги нужен?').trim();
+                    name = prompt('Какой дополнительный тип услуги нужен?', 'верстка').trim();
                 } while (this.isString(name));
 
                 do {
                     price = parseFloat(prompt('Сколько это будет стоить?').trim());
                 } while (!this.isNumber(price));
 
-            appData.services[name] = +price;
+
+                if (Object.keys(appData.services).indexOf(name) === -1) {
+                    appData.services[name] = +price;
+                } else {
+                    appData.services[name + i] = +price;
+                }
         }
 
         appData.adaptive = confirm('Нужен ли адаптив на сайте?');
     },
 
     addPrice: function () {
-        for (let screen of appData.screens) {
+       /* for (let screen of appData.screens) {
             appData.screenPrice += +screen.price;
-        }
+        }*/
+
+        appData.screenPrice = appData.screens.reduce((acc, operation) => {
+           return operation.price += +operation.price;
+        }, 0);
+
 
         for(let key in appData.services) {
             appData.allServicePrices += appData.services[key];
@@ -107,6 +117,8 @@ const appData = {
         console.log(appData.fullPrice);
         console.log(appData.servicePercentPrice);
         console.log(appData.screens);
+
+        console.log(appData.services);
     },
 };
 
