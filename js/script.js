@@ -1,5 +1,40 @@
 'use strict';
 
+const titleCalculator = document.getElementsByTagName('h1')[0].textContent;
+console.dir(titleCalculator);
+
+const handlerBtnStart = document.getElementsByClassName('handler_btn')[0];
+const handlerBtnReset = document.getElementsByClassName('handler_btn')[1];
+
+console.dir(handlerBtnStart);
+console.dir(handlerBtnReset);
+
+const screenBtn = document.querySelector('.screen-btn');
+console.dir(screenBtn);
+
+const otherItemsPercent = document.querySelectorAll('.other-items.percent');
+const otherItemsNumber = document.querySelectorAll('.other-items.number');
+console.dir(otherItemsPercent);
+console.dir(otherItemsNumber);
+
+const rollbackInputRange = document.querySelector('.rollback input[type="range"]');
+console.dir(rollbackInputRange);
+
+const rollbackRangevalue = document.querySelector('.rollback span.range-value');
+console.dir(rollbackRangevalue);
+
+const totalInput0 = document.getElementsByClassName('total-input')[0];
+const totalInput1 = document.getElementsByClassName('total-input')[1];
+const totalInput2 = document.getElementsByClassName('total-input')[2];
+const totalInput3 = document.getElementsByClassName('total-input')[3];
+const totalInput4 = document.getElementsByClassName('total-input')[4];
+
+console.log(totalInput0, totalInput1, totalInput2, totalInput3, totalInput4);
+
+
+let blocksScreen = document.querySelectorAll('.screen');
+console.log(blocksScreen);
+
 
 const appData = {
     title: '',
@@ -33,18 +68,18 @@ const appData = {
 
     asking: function () {
         do {
-            appData.title = prompt('Как называется ваш проект?', 'Калькулятор').trim();
+            appData.title = prompt('Как называется ваш проект?', 'Калькулятор верстки').trim();
         } while (this.isString(appData.title));
 
         for (let i = 0; i < 2; i++) {
             let name = '';
             let price = 0;
             do {
-                name = prompt('Какие типы экранов нужно разработать?').trim();
+                name = prompt('Какие типы экранов нужно разработать?', 'простые').trim();
             } while (this.isString(name));
 
             do {
-                price = parseFloat(prompt('Сколько будет стоить данная работа?').trim());
+                price = parseFloat(prompt('Сколько будет стоить данная работа?', '10000').trim());
             } while (!this.isNumber(price));
 
             appData.screens.push({id: i, name: name, price: price});
@@ -59,7 +94,7 @@ const appData = {
                 } while (this.isString(name));
 
                 do {
-                    price = parseFloat(prompt('Сколько это будет стоить?').trim());
+                    price = parseFloat(prompt('Сколько это будет стоить?', '1000').trim());
                 } while (!this.isNumber(price));
 
 
