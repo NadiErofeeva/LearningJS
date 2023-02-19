@@ -36,16 +36,16 @@ const appData = {
     servicesNumber: {},
     init: function() {
         this.addTitle();
-        handlerBtnStart.addEventListener('click', this.start.bind(appData));
-        handlerBtnReset.addEventListener('click', this.reset.bind(appData));
-        screenBtn.addEventListener('click', this.addScreenBlock.bind(appData));
+        handlerBtnStart.addEventListener('click', this.start.bind(this));
+        handlerBtnReset.addEventListener('click', this.reset.bind(this));
+        screenBtn.addEventListener('click', this.addScreenBlock.bind(this));
         document.querySelector('.screen select')
-            .addEventListener('change', this.checkedScreenBlockSelects.bind(appData));
+            .addEventListener('change', this.checkedScreenBlockSelects.bind(this));
         document.querySelector('.screen input')
-            .addEventListener('input', this.checkedScreenBlockSelects.bind(appData));
+            .addEventListener('input', this.checkedScreenBlockSelects.bind(this));
 
-        rollbackInputRange.addEventListener('input', this.rollbackItem.bind(appData));
-        this.checkedScreenBlockSelects.bind(appData);
+        rollbackInputRange.addEventListener('input', this.rollbackItem.bind(this));
+        this.checkedScreenBlockSelects.bind(this);
 
     },
 
